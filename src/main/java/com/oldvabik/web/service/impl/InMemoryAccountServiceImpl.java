@@ -5,9 +5,11 @@ import com.oldvabik.web.repository.InMemoryAccountDAO;
 import com.oldvabik.web.service.AccountService;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
+@Primary
 @AllArgsConstructor
 public class InMemoryAccountServiceImpl implements AccountService {
     private final InMemoryAccountDAO REPOSITORY;
