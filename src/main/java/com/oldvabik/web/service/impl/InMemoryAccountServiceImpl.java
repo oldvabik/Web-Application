@@ -12,35 +12,36 @@ import org.springframework.stereotype.Service;
 @Primary
 @AllArgsConstructor
 public class InMemoryAccountServiceImpl implements AccountService {
-    private final InMemoryAccountDAO REPOSITORY;
+    @SuppressWarnings({"checkstyle:MemberName", "checkstyle:AbbreviationAsWordInName"})
+    private InMemoryAccountDAO repository;
 
     @Override
     public List<Account> findAllAccounts() {
-        return REPOSITORY.findAllAccounts();
+        return repository.findAllAccounts();
     }
 
     @Override
     public Account saveAccount(Account account) {
-        return REPOSITORY.saveAccount(account);
+        return repository.saveAccount(account);
     }
 
     @Override
     public Account findByEmail(String email) {
-        return REPOSITORY.findByEmail(email);
+        return repository.findByEmail(email);
     }
 
     @Override
     public Account updateAccount(Account account) {
-        return REPOSITORY.updateAccount(account);
+        return repository.updateAccount(account);
     }
 
     @Override
     public void deleteAccount(String email) {
-        REPOSITORY.deleteAccount(email);
+        repository.deleteAccount(email);
     }
 
     @Override
     public List<Account> searchAccounts(String name, String role) {
-        return REPOSITORY.searchAccounts(name, role);
+        return repository.searchAccounts(name, role);
     }
 }

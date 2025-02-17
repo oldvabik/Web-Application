@@ -1,6 +1,7 @@
 package com.oldvabik.web.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 @Data
 @Builder

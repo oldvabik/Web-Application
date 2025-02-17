@@ -7,9 +7,14 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AccountService {
     List<Account> findAllAccounts();
+
     Account saveAccount(Account account);
+
     Account findByEmail(String email);
+
     Account updateAccount(Account account);
+
     void deleteAccount(String email);
+
     List<Account> searchAccounts(String name, String email);
 }

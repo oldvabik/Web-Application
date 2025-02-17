@@ -6,33 +6,35 @@ import java.util.List;
 import java.util.stream.IntStream;
 import org.springframework.stereotype.Repository;
 
+@SuppressWarnings("checkstyle:AbbreviationAsWordInName")
 @Repository
 public class InMemoryAccountDAO {
-    private final List<Account> ACCOUNTS = new ArrayList<>();
+    @SuppressWarnings("checkstyle:MemberName")
+    private List<Account> accounts = new ArrayList<>();
 
     public List<Account> findAllAccounts() {
-        return ACCOUNTS;
+        return accounts;
     }
 
     public Account saveAccount(Account account) {
-        ACCOUNTS.add(account);
+        accounts.add(account);
         return account;
     }
 
     public Account findByEmail(String email) {
-        return ACCOUNTS.stream()
+        return accounts.stream()
                 .filter(element -> element.getEmail().equals(email))
                 .findFirst()
                 .orElse(null);
     }
 
     public Account updateAccount(Account account) {
-        var accountIndex = IntStream.range(0, ACCOUNTS.size())
-                .filter(index -> ACCOUNTS.get(index).getEmail().equals(account.getEmail()))
+        var accountIndex = IntStream.range(0, accounts.size())
+                .filter(index -> accounts.get(index).getEmail().equals(account.getEmail()))
                 .findFirst()
                 .orElse(-1);
         if (accountIndex > -1) {
-            ACCOUNTS.set(accountIndex, account);
+            accounts.set(accountIndex, account);
             return account;
         }
         return null;
@@ -41,12 +43,12 @@ public class InMemoryAccountDAO {
     public void deleteAccount(String email) {
         var account = findByEmail(email);
         if (account != null) {
-            ACCOUNTS.remove(account);
+            accounts.remove(account);
         }
     }
 
     public List<Account> searchAccounts(String name, String role) {
-        return ACCOUNTS.stream()
+        return accounts.stream()
                 .filter(account -> (name == null || account.getName().equalsIgnoreCase(name))
                         && (role == null || account.getRole().equalsIgnoreCase(role)))
                 .toList();

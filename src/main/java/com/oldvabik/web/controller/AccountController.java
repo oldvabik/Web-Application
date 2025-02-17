@@ -4,41 +4,51 @@ import com.oldvabik.web.model.Account;
 import com.oldvabik.web.service.AccountService;
 import java.util.List;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("/api/accounts")
 @AllArgsConstructor
 public class AccountController {
-    private final AccountService ACCOUNT_SERVICE;
+    @SuppressWarnings({"checkstyle:MemberName", "checkstyle:AbbreviationAsWordInName"})
+    private AccountService accountService;
 
     @GetMapping
     public List<Account> findAllAccounts() {
-        return ACCOUNT_SERVICE.findAllAccounts();
+        return accountService.findAllAccounts();
     }
 
     @PostMapping
     public Account saveAccount(@RequestBody Account account) {
-        return ACCOUNT_SERVICE.saveAccount(account);
+        return accountService.saveAccount(account);
     }
 
     @GetMapping("/{email}")
     public Account findByEmail(@PathVariable String email) {
-        return ACCOUNT_SERVICE.findByEmail(email);
+        return accountService.findByEmail(email);
     }
 
     @PutMapping
     public Account updateAccount(Account account) {
-        return ACCOUNT_SERVICE.updateAccount(account);
+        return accountService.updateAccount(account);
     }
 
     @DeleteMapping("/{email}")
     public void deleteAccount(@PathVariable String email) {
-        ACCOUNT_SERVICE.deleteAccount(email);
+        accountService.deleteAccount(email);
     }
 
     @GetMapping("/search")
     public List<Account> searchAccounts(@RequestParam String name, @RequestParam String role) {
-        return ACCOUNT_SERVICE.searchAccounts(name, role);
+        return accountService.searchAccounts(name, role);
     }
 }
