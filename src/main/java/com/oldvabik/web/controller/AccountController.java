@@ -2,10 +2,9 @@ package com.oldvabik.web.controller;
 
 import com.oldvabik.web.model.Account;
 import com.oldvabik.web.service.AccountService;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/accounts")

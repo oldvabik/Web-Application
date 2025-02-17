@@ -1,11 +1,10 @@
 package com.oldvabik.web.repository;
 
 import com.oldvabik.web.model.Account;
-import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class InMemoryAccountDAO {

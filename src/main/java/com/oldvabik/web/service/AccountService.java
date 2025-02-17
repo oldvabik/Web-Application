@@ -1,9 +1,8 @@
 package com.oldvabik.web.service;
 
 import com.oldvabik.web.model.Account;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public interface AccountService {

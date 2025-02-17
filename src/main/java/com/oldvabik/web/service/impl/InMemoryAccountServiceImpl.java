@@ -3,10 +3,9 @@ package com.oldvabik.web.service.impl;
 import com.oldvabik.web.model.Account;
 import com.oldvabik.web.repository.InMemoryAccountDAO;
 import com.oldvabik.web.service.AccountService;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @AllArgsConstructor
