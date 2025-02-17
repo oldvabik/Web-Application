@@ -3,7 +3,6 @@ package com.oldvabik.web.controller;
 import com.oldvabik.web.model.Account;
 import com.oldvabik.web.service.AccountService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

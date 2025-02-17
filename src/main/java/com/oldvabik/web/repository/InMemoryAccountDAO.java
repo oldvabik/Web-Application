@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Repository
@@ -51,6 +50,6 @@ public class InMemoryAccountDAO {
         return ACCOUNTS.stream()
                 .filter(account -> (name == null || account.getName().equalsIgnoreCase(name))
                         && (role == null || account.getRole().equalsIgnoreCase(role)))
-                .collect(Collectors.toList());
+                .toList();
     }
 }
